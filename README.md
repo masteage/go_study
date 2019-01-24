@@ -8,3 +8,7 @@
 
 * **book**
   * the go programming language
+
+* **Links**
+  * http://www.gopl.io/
+  * https://github.com/adonovan/gopl.io
