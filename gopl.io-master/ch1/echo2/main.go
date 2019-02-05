@@ -10,9 +10,20 @@ package main
 import (
 	"fmt"
 	"os"
+	"strconv"
 )
 
 func main() {
+	//normalMain()
+	test01()
+}
+
+func normalMain() {
+	//strTmp := ""				// only function able
+	//var strTmp string
+	//var strTmp = ""
+	//var strTmp string = ""
+
 	s, sep := "", ""
 	for _, arg := range os.Args[1:] {
 		s += sep + arg
@@ -21,4 +32,13 @@ func main() {
 	fmt.Println(s)
 }
 
+func test01() {
+	for index, arg := range os.Args[1:] {
+		fmt.Println("arg[" + strconv.Itoa(index) + "] : " + arg)
+	}
+
+	//for index, arg := range os.Args[1:] {
+	//	fmt.Println("arg[" + strconv.Itoa(index) + "] : " + arg)
+	//}
+}
 //!-
