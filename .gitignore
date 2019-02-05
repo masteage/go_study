@@ -1,4 +1,9 @@
 # gitignore
 
 # goland ide info
-.idea/*
+.idea
+
+# obj file
+main
+
+
