@@ -6,6 +6,15 @@
 
 // Boiling prints the boiling point of water.
 
+
+// https://golang.org/pkg/fmt/#hdr-Printing
+
+// https://golang.org/ref/spec#Keywords
+// https://golang.org/ref/spec#Constants
+// https://golang.org/ref/spec#Types
+// https://golang.org/ref/spec#Built-in_functions
+
+
 // package declaration
 package main
 
