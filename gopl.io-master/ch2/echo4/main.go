@@ -22,6 +22,9 @@ func main() {
 	if !*n {
 		fmt.Println()
 	}
+
+	fmt.Printf("n : %T\n",n)
+	fmt.Printf("sep : %T\n",sep)
 }
 
 //!-

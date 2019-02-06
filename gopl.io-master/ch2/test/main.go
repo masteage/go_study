@@ -4,16 +4,26 @@ package main
 import (
 	"fmt"
 	"os"
+	"./tempconv"
+	"./tmppkg"
+	//"tmppkg"
+	//"gopl.io/ch2/tempconv"
 )
+
 
 func main() {
 	chapter2_3()
 	chapter2_3_1_01()
 	chapter2_3_1_02()
 	chapter2_3_2()
+	chapter2_3_3()
+	chapter2_4_1()
+	chapter2_5()
+	chapter2_6()
 }
 
 func chapter2_3() {
+	fmt.Println("\nchapter2_3 function call")
 	var myInt int
 	var myBoolean bool
 	var myString string
@@ -26,6 +36,7 @@ func chapter2_3() {
 }
 
 func chapter2_3_1_01() {
+	fmt.Println("\nchapter2_3_1_01 function call")
 	var b, f, s = true, 2.3, "four"
 	fmt.Printf("b : %t\n",b)
 	fmt.Printf("f : %f\n",f)
@@ -38,6 +49,7 @@ func chapter2_3_1_01() {
 }
 
 func chapter2_3_1_02() {
+	fmt.Println("\nchapter2_3_1_02 function call")
 	// 01
 	name := "tmp.txt"
 	f, err := os.Open(name)
@@ -75,6 +87,7 @@ func chapter2_3_1_02() {
 }
 
 func chapter2_3_2() {
+	fmt.Println("chapter2_3_2 function call")
 	// 01
 	x := 1			// int x
 	p := &x			// int* p
@@ -107,4 +120,123 @@ func incr(p *int) int {
 	*p++
 	//(*p)++
 	return *p
+}
+
+func chapter2_3_3() {
+	fmt.Println("\nchapter2_3_3 function call")
+
+	// 01
+	p := new(int)	// *int
+	fmt.Println(*p)	// 0
+	*p = 2
+	fmt.Println(*p)	// 2
+
+	// 02
+	p2 := new(int)
+	q2 := new(int)
+	fmt.Println(p2 == q2)
+
+	p3 := newInt01()
+	q3 := newInt02()
+	fmt.Println(p3)
+	fmt.Println(*p3)
+	fmt.Println(q3)
+	fmt.Println(*q3)
+
+	// 03
+	fmt.Println(delta(10,20))
+}
+
+func newInt01() *int {
+	return new(int)
+}
+
+func newInt02() *int{
+	var dummy int
+	return &dummy
+}
+
+func delta(old, new int) int {
+	//testValue := new(int)	// error - already redefined 'new'
+	return new - old
+}
+
+var global *int
+func f2() {
+	var x int	// 'x' heap
+	x = 1
+	global = &x
+}
+
+func g2() {
+	y := new(int)	// 'y' stack
+	*y = 1
+}
+
+func chapter2_4_1() {
+	fmt.Println("\nchapter2_4_1 function call")
+	fmt.Printf("gcd - %d\n",gcd(20,3))
+	fmt.Printf("fib - %d\n",fib(6))
+}
+
+func gcd(x, y int) int {
+	for y != 0 {
+		x, y = y, x%y
+	}
+	return x
+}
+
+func fib(n int) int {
+	x, y := 0, 1
+	for i := 0; i < n; i++ {
+		x, y = y, x + y
+	}
+	return x
+}
+
+func chapter2_5() {
+	fmt.Println("\nchapter2_5 function call")
+	Example_one()
+	Example_two()
+}
+
+func Example_one() {
+	fmt.Printf("%g\n", tempconv.BoilingC-tempconv.FreezingC)			// "100"
+	fmt.Printf("%v\n", tempconv.BoilingC-tempconv.FreezingC)			// "100°C"
+	boilingF := tempconv.CToF(tempconv.BoilingC)
+	fmt.Printf("%g\n", boilingF-tempconv.CToF(tempconv.FreezingC))	// "180"
+	fmt.Println(boilingF-tempconv.CToF(tempconv.FreezingC))					// "180°F"
+	//fmt.Printf("%g\n", boilingF-tempconv.FreezingC)						// compile error: type mismatch
+}
+
+func Example_two() {
+	c := tempconv.FToC(212.0)
+	fmt.Println(c.String())			// "100°C"
+	fmt.Printf("%v\n", c)	// "100°C"; no need to call String explicitly
+	fmt.Printf("%s\n", c)	// "100°C"
+	fmt.Println(c)					// "100°C"
+	fmt.Printf("%g\n", c)	// "100"; does not call String
+	fmt.Println(float64(c))			// "100"; does not call String
+}
+
+func chapter2_6() {
+	fmt.Println("\nchapter2_6 function call")
+	//var ddd Celsius
+	//var dd tempconv.Celsius
+	//dd = 1.2
+
+	var ddd int
+	ddd = 10
+	fmt.Printf("%d\n",ddd)
+
+	var ddd2 tempconv.Celsius
+	//var ddd2 tmppkg.Celsius
+	ddd2 = 1.2
+	fmt.Printf("%f\n",ddd2)
+	//tmppkg.Celsius()
+
+
+	var ddd3 tmppkg.Celsius
+	ddd3 = 1.2
+	fmt.Printf("%f\n",ddd3)
 }
