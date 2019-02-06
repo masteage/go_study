@@ -20,6 +20,7 @@ func main() {
 	chapter2_4_1()
 	chapter2_5()
 	chapter2_6()
+	chapter2_6_2()
 }
 
 func chapter2_3() {
@@ -198,6 +199,12 @@ func chapter2_5() {
 	fmt.Println("\nchapter2_5 function call")
 	Example_one()
 	Example_two()
+
+	var myTmp tmppkg.MyType = 10
+	//fmt.Println(myTmp.myFunc())
+	fmt.Println(myTmp.MyFunc())
+	fmt.Println(myTmp.String())
+
 }
 
 func Example_one() {
@@ -239,4 +246,17 @@ func chapter2_6() {
 	var ddd3 tmppkg.Celsius
 	ddd3 = 1.2
 	fmt.Printf("%f\n",ddd3)
+}
+
+// init order
+var a = b + c		// 3
+var b = f3()		// 2
+var c = 1			// 1
+func f3() int { return  c + 1 }
+
+func chapter2_6_2() {
+	fmt.Println("\nchapter2_6_2 function call")
+	fmt.Printf("a : %d\n",a)
+	fmt.Printf("b : %d\n",b)
+	fmt.Printf("c : %d\n",c)
 }

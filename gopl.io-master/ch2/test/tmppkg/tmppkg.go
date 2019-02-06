@@ -7,6 +7,17 @@
 
 package tmppkg
 
+import "fmt"
+
 type Celsius float64
 type Fahrenheit float64
+
+// not able : myType -> MyType
+//type myType int
+type MyType int
+
+// not able : myFunc -> MyFunc
+//func (t MyType) myFunc() string { return fmt.Sprintf("Value(%d)", t) }
+func (t MyType) MyFunc() string { return fmt.Sprintf("Value(%d) - MyFunc", t) }
+func (t MyType) String() string { return fmt.Sprintf("Value(%d) - String", t) }
 //!-
