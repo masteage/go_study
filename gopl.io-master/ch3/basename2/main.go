@@ -7,18 +7,20 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"os"
 	"strings"
 )
 
 func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		fmt.Println(basename(input.Text()))
-	}
+	//input := bufio.NewScanner(os.Stdin)
+	//for input.Scan() {
+	//	fmt.Println(basename(input.Text()))
+	//}
 	// NOTE: ignoring potential errors from input.Err()
+
+	fmt.Println(basename("a/b/c.go"))
+	fmt.Println(basename("c.d.go"))
+	fmt.Println(basename("abc"))
 }
 
 // basename removes directory components and a trailing .suffix.

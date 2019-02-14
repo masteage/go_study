@@ -6,18 +6,19 @@
 // Basename1 reads file names from stdin and prints the base name of each one.
 package main
 
-import (
-	"bufio"
-	"fmt"
-	"os"
-)
+import "fmt"
 
 func main() {
-	input := bufio.NewScanner(os.Stdin)
-	for input.Scan() {
-		fmt.Println(basename(input.Text()))
-	}
+	//input := bufio.NewScanner(os.Stdin)
+	//for input.Scan() {
+	//	fmt.Println(basename(input.Text()))
+	//}
 	// NOTE: ignoring potential errors from input.Err()
+
+
+	fmt.Println(basename("a/b/c.go"))
+	fmt.Println(basename("c.d.go"))
+	fmt.Println(basename("abc"))
 }
 
 //!+
